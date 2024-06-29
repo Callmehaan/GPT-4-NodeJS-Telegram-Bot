@@ -4,14 +4,13 @@ const axios = require("axios");
 const redis = require("redis");
 const client = redis.createClient();
 const botActions = require("./actions/bots.actions");
+require("dotenv").config();
 
 //* Configs
-const telegramToken = "7358951944:AAF-4w_h4R6AOCgNqVDud0o4AuwmXa8G3yY";
-const apiToken = "280977:666c2d7a8bead";
 const tones = ["balanced", "creative", "precise"];
 
 //* Telegraf
-const bot = new Telegraf(telegramToken);
+const bot = new Telegraf(process.env.telegramToken);
 
 bot.start((ctx) => {
     ctx.reply(
