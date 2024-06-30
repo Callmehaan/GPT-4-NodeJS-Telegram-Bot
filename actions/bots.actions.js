@@ -1,4 +1,5 @@
 const redis = require("redis");
+const { Markup } = require("telegraf");
 const client = redis.createClient();
 client.connect();
 
@@ -32,7 +33,7 @@ const copilotAction = (ctx) => {
 
 //* Tone Selection
 const saveTone = (tone, ctx) => {
-    client.set(`user:${ctx.chat.id}:tones`, tone);
+    client.set(`user:${ctx.chat.id}:tone`, tone);
 
     ctx.editMessageText("Hello, How Can I Help You ?!");
 };
